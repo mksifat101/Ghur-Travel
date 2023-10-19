@@ -1,0 +1,453 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Admin Dashboard | Vromon Sheba Ltd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Travel Management System Development by MK Sifat" name="description" />
+    <meta content="Mk Sifat" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'admin/assets/images/favicon.ico' %}">
+
+    <!-- Sweet Alert-->
+    <link href="{% static 'admin/assets/libs/sweetalert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- third party css -->
+    <link href="{% static 'admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}"
+        rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap Tables css -->
+    <link href="{% static 'admin/assets/libs/bootstrap-table/bootstrap-table.min.css' %}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Plugins css -->
+    <link href="{% static 'admin/assets/libs/flatpickr/flatpickr.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'admin/assets/libs/selectize/css/selectize.bootstrap3.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'admin/assets/libs/dropzone/min/dropzone.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'admin/assets/libs/dropify/css/dropify.min.css' %}" rel="stylesheet" type="text/css" />
+
+
+    <!-- App css -->
+    <link href="{% static 'admin/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"
+        id="bs-default-stylesheet" />
+    <link href="{% static 'admin/assets/css/app.min.css' %}" rel="stylesheet" type="text/css"
+        id="app-default-stylesheet" />
+
+    <link href="{% static 'admin/assets/css/bootstrap-dark.min.css' %}" rel="stylesheet" type="text/css"
+        id="bs-dark-stylesheet" disabled />
+    <link href="{% static 'admin/assets/css/app-dark.min.css' %}" rel="stylesheet" type="text/css"
+        id="app-dark-stylesheet" disabled />
+
+    <!-- icons -->
+    <link href="{% static 'admin/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                    <li class="dropdown d-inline-block d-lg-none">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown"
+                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-search noti-icon"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-lg dropdown-menu-right p-0">
+                            <form class="p-3">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                    aria-label="Recipient's username">
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown d-none d-lg-inline-block">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen"
+                            href="#">
+                            <i class="fe-maximize noti-icon"></i>
+                        </a>
+                    </li>
+
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-bell noti-icon"></i>
+                            <span class="badge badge-danger rounded-circle noti-icon-badge">9</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="m-0">
+                                    <span class="float-right">
+                                        <a href="" class="text-dark">
+                                            <small>Clear All</small>
+                                        </a>
+                                    </span>Notification
+                                </h5>
+                            </div>
+
+                            <div class="noti-scroll" data-simplebar>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon">
+                                        <img src="{% static 'admin/assets/images/users/user-1.jpg' %}"
+                                            class="img-fluid rounded-circle" alt="" />
+                                    </div>
+                                    <p class="notify-details">Cristina Pride</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Hi, How are you? What about our next meeting</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">1 min ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon">
+                                        <img src="{% static 'admin/assets/images/users/user-4.jpg' %}"
+                                            class="img-fluid rounded-circle" alt="" />
+                                    </div>
+                                    <p class="notify-details">Karen Robinson</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Wow ! this admin looks good and awesome design</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning">
+                                        <i class="mdi mdi-account-plus"></i>
+                                    </div>
+                                    <p class="notify-details">New user registered.
+                                        <small class="text-muted">5 hours ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">4 days ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-secondary">
+                                        <i class="mdi mdi-heart"></i>
+                                    </div>
+                                    <p class="notify-details">Carlos Crouch liked
+                                        <b>Admin</b>
+                                        <small class="text-muted">13 days ago</small>
+                                    </p>
+                                </a>
+                            </div>
+
+                            <!-- All-->
+                            <a href="javascript:void(0);"
+                                class="dropdown-item text-center text-primary notify-item notify-all">
+                                View all
+                                <i class="fe-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light"
+                            data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{% static 'admin/assets/images/users/avatar.png' %}" alt="user-image"
+                                class="rounded-circle">
+                            <span class="pro-user-name ml-1">
+                                {{ user.first_name }} {{user.last_name}} <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fe-user"></i>
+                                <span>My Account</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fe-settings"></i>
+                                <span>Settings</span>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="{% url 'logout' %}" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                    <!-- <li class="dropdown notification-list">
+                        <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                            <i class="fe-settings noti-icon"></i>
+                        </a>
+                    </li> -->
+
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="{% url 'dashboard' %}" class="logo logo-dark text-center">
+                        <span class="logo-sm">
+                            <h2 style="color: white; margin-top: 28px; font-size: small; ">
+                                ERP
+                            </h2>
+                            <!-- <img src="{% static 'admin/assets/images/logo-sm.png' %}" alt="" height="22"> -->
+                            <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        </span>
+                        <span class="logo-lg">
+                            <h2 class="logo-lg-text-light" style="color: white; margin-top: 20px;">Hotspot ERP</h2>
+                            <!-- <img src="{% static 'admin/assets/images/logo-dark.png' %}" alt="" height="20"> -->
+                            <!-- <span class="logo-lg-text-light">U</span> -->
+                        </span>
+                    </a>
+
+                    <a href="{% url 'dashboard' %}" class="logo logo-light text-center">
+                        <span class="logo-sm">
+                            <h2 style="color: white; margin-top: 28px; font-size: small; ">
+                                ERP
+                            </h2>
+                            <!-- <img src="{% static 'admin/assets/images/logo-sm.png' %}" alt="" height="22"> -->
+                        </span>
+                        <span class="logo-lg">
+                            <h2 style="color: white; margin-top: 20px;">Dashboard</h2>
+                            <!-- <img src="{% static 'admin/assets/images/logo-light.png' %}" alt="" height="20"> -->
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>
+
+                    <li>
+                        <!-- Mobile menu toggle (Horizontal Layout)-->
+                        <a class="navbar-toggle nav-link" data-toggle="collapse" data-target="#topnav-menu-content">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        {% include 'includes/dashboard_sidebar.html' %}
+        <!-- Left Sidebar End -->
+        {% block content %}
+
+        {% endblock %}
+
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        2020 -
+                        <script>document.write(new Date().getFullYear())</script> &copy; XEON Solution | Develop by <a
+                            href="https://mksifat.com">Mk Sifat</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-right footer-links d-none d-sm-block">
+                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">Help</a>
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- Vendor js -->
+    <script src="{% static 'admin/assets/js/vendor.min.js' %}"></script>
+
+    <!-- Third Party js-->
+    <script src="{% static 'admin/assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="https://apexcharts.com/samples/admin/assets/ohlc.js"></script>
+    <script src="{% static 'admin/assets/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'admin/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script
+        src="{% static 'admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+    <script
+        src="{% static 'admin/assets/libs/jquery-datatables-checkboxes/js/dataTables.checkboxes.min.js' %}"></script>
+    <!-- third party js ends -->
+     <!-- third party js -->
+     <script src="{% static 'admin/assets/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/pdfmake/build/pdfmake.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/pdfmake/build/vfs_fonts.js' %}"></script>
+     <!-- third party js ends -->
+     
+     <!-- Datatables init -->
+     <script src="{% static 'admin/assets/js/pages/datatables.init.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js' %}"></script>
+
+    <!-- Plugins js -->
+    <script src="{% static 'admin/assets/libs/dropzone/min/dropzone.min.js' %}"></script>
+    <script src="{% static 'admin/assets/libs/dropify/js/dropify.min.js' %}"></script>
+     <!-- Init js-->
+     <script src="{% static 'admin/assets/js/pages/form-fileuploads.init.js' %}"></script>
+
+    <!-- Bootstrap Tables js -->
+    <script src="{% static 'admin/assets/libs/bootstrap-table/bootstrap-table.min.js' %}"></script>
+
+    <!-- Datatables init -->
+    <script src="{% static 'admin/assets/js/pages/customers.init.js' %}"></script>
+
+    <!-- CRM Dashboard init js-->
+    <script src="{% static 'admin/assets/js/pages/crm-dashboard.init.js' %}"></script>
+
+    <!-- Sweet Alerts js -->
+    <script src="{% static 'admin/assets/libs/sweetalert2/sweetalert2.min.js' %}"></script>
+
+    <!-- Sweet alert init js-->
+    <script src="{% static 'admin/assets/js/pages/sweet-alerts.init.js' %}"></script>
+
+    <!-- App js -->
+    <script src="{% static 'admin/assets/js/app.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#customerfilter').change(function () {
+                var customer = $(this).val();
+                var filter = $('#ordfilter').val();
+                $.ajax({
+                    url: "{% url 'get_booking_customer' %}",
+                    data: {
+                        'customer': customer,
+                        'filter': filter
+                    },
+                    success: function (data) {
+                        $('#get_bk_customer').html(data)
+                    }
+                })
+            })
+        }),
+            $(document).ready(function () {
+                $('#partnerfilter').change(function () {
+                    var partner = $(this).val();
+                    var filter = $('#ordfilter').val();
+                    $.ajax({
+                        url: "{% url 'get_hotel_partner' %}",
+                        data: {
+                            'partner': partner,
+                            'filter': filter
+                        },
+                        success: function (data) {
+                            $('#get_hotel_prt').html(data)
+                        }
+                    })
+                })
+            }),
+            $(document).ready(function () {
+                $('#topdst_partner').change(function () {
+                    var topdst = $(this).val();
+                    $.ajax({
+                        url: "{% url 'get_top_dst' %}",
+                        data: {
+                            'topdst': topdst,
+                        },
+                        success: function (data) {
+                            $('#dst_partner').html(data)
+                        }
+                    })
+                })
+            }),
+            $(document).ready(function () {
+                $('#get_partner_by_hotel').change(function () {
+                    var partner = $(this).val();
+                    var filter = $('#ordfilter').val();
+                    $.ajax({
+                        url: "{% url 'get_partner_by_hotel' %}",
+                        data: {
+                            'partner': partner,
+                            'filter': filter
+                        },
+                        success: function (data) {
+                            $('#get_partner_hotel_result').html(data)
+                        }
+                    })
+                })
+            })
+    </script>
+
+    {% for msg in messages %}
+    <script>
+        swal({
+            title: `{{msg}}`,
+            icon: "{{ msg.tags }}",
+        });
+    </script>
+    {% endfor %}
+</body>
+
+</html>

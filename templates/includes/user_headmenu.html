@@ -1,0 +1,54 @@
+{% load static %}
+<div class="notification-item">
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" id="userDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="d-flex align-items-center">
+                <div class="avatar avatar-sm flex-shrink-0 mr-2"><img src="{% static 'assets/images/team8.jpg' %}" alt="team-img"></div>
+                <span class="font-size-14 font-weight-bold">{{request.user.first_name}} {{request.user.last_name}}</span>
+            </div>
+        </a>
+        <div class="dropdown-menu dropdown-reveal dropdown-menu-md dropdown-menu-right">
+            <div class="dropdown-item drop-reveal-header user-reveal-header">
+                <h6 class="title text-uppercase">Welcome!</h6>
+            </div>
+            <div class="list-group drop-reveal-list user-drop-reveal-list">
+                <a href="user-dashboard-profile.html" class="list-group-item list-group-item-action">
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <h3 class="title"><i class="la la-user mr-2"></i>My Profile</h3>
+                        </div>
+                    </div><!-- end msg-body -->
+                </a>
+                <a href="user-dashboard-booking.html" class="list-group-item list-group-item-action">
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <h3 class="title"><i class="la la-shopping-cart mr-2"></i>My Booking</h3>
+                        </div>
+                    </div><!-- end msg-body -->
+                </a>
+                <a href="user-dashboard-reviews.html" class="list-group-item list-group-item-action">
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <h3 class="title"><i class="la la-heart mr-2"></i>My Reviews</h3>
+                        </div>
+                    </div><!-- end msg-body -->
+                </a>
+                <a href="user-dashboard-settings.html" class="list-group-item list-group-item-action">
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <h3 class="title"><i class="la la-gear mr-2"></i>Settings</h3>
+                        </div>
+                    </div><!-- end msg-body -->
+                </a>
+                <div class="section-block"></div>
+                <a href="{% url 'logout' %}" class="list-group-item list-group-item-action">
+                    <div class="msg-body">
+                        <div class="msg-content">
+                            <h3 class="title"><i class="la la-power-off mr-2"></i>Logout</h3>
+                        </div>
+                    </div><!-- end msg-body -->
+                </a>
+            </div>
+        </div><!-- end dropdown-menu -->
+    </div>
+</div><!-- end notification-item -->

@@ -1,0 +1,139 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Edit Hotel Room</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Edit Room</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <!-- Form row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Input Room Information</h4>
+                            <form method="post" action="{% url 'dashboard_room_edit' room.id %}"
+                                enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Room Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Ex: Hotel Place" value="{{room.name}}" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Details About Room</label>
+                                        <textarea class="form-control" name="details" id="example-textarea" rows="2"
+                                            placeholder="Room Details" value="{{room.details}}"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Thumbnails</label>
+                                        <input type="file" id="example-fileinput" name="thumbnails"
+                                            class="form-control-file">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Number of this Room</label>
+                                        <input class="form-control" id="example-time" type="number"
+                                            name="number_of_room" value="1" value="{{room.number_of_room}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Number of Beds</label>
+                                        <input class="form-control" id="example-time" type="number"
+                                            value="{{room.number_of_bed}}" name="number_of_bed" value="1">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Number of Adults</label>
+                                        <input class="form-control" id="example-time" type="number"
+                                            name="number_of_adult" value="1" value="{{room.number_of_adult}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Number of Children</label>
+                                        <input class="form-control" id="example-time" type="number"
+                                            name="number_of_children" value="1" value="{{room.number_of_children}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Room Footage (square meters) <span
+                                                class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" name="room_footage" placeholder="1250"
+                                            required value="{{room.room_footage}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Number of days before the arrival <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="arrive"
+                                            placeholder="Ex: Mirpur 10" value="{{room.arrive}}" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Allow Cancel Room booking <span
+                                                class="text-danger">*</span></label>
+                                        <div class="checkbox checkbox-primary mb-2">
+                                            <input id="cancel" value="yes" type="checkbox" name="allow_cancel">
+                                            <label for="cancel">
+                                                Yes
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Book Before number of day<span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="before_booking" value="1" required
+                                            value="{{room.before_booking}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Minimum Stay <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="min_stay" value="1" required
+                                            value="{{room.min_stay}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Price</label>
+                                        <input type="text" class="form-control" name="price" placeholder="Ex: 3400"
+                                            required value="{{room.price}}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Cancel Fee</label>
+                                        <input type="text" class="form-control" name="cancel_fee"
+                                            placeholder="Ex: www.youtube.com" required value="{{room.cancel_fee}}">
+                                    </div>
+
+
+                                </div>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+</div> <!-- content -->
+
+
+{% endblock %}

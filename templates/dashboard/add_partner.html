@@ -1,0 +1,144 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Add Partner</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Add Partner</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <!-- Form row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Input Partner Information</h4>
+                            <form method="post" action="{% url 'add_partner' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">First Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="first_name"
+                                            placeholder="Ex: Sajid" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Last Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Ex: Ahmed"
+                                            required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">User Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="username"
+                                            placeholder="Ex: sajjad_ahmed" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Email Address <span
+                                                class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" name="email"
+                                            placeholder="Ex: mail@example.com" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Contact Number <span
+                                                class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" name="phone" placeholder="Ex: +8801"
+                                            required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Password <span
+                                                class="text-danger">*</span></label>
+                                        <input type="password" class="form-control" name="password" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Company Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="company" placeholder="Ex: BD LTD"
+                                            required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">TIN Number</label>
+                                        <input type="text" class="form-control" name="tin_no">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Website</label>
+                                        <input type="text" class="form-control" name="website"
+                                            placeholder="Ex: www.google.com">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Address <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="address"
+                                            placeholder="Ex: Mirpur 10" required>
+                                    </div>
+                                    <!-- <div class="form-group col-md-6">
+                                        <label class="col-form-label">NID Front <span
+                                                class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" id="example-fileinput" name="nid_front" class="form-control-file" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">NID Back <span
+                                                class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" id="example-fileinput" name="nid_back" class="form-control-file" required>
+                                            </div>
+                                        </div>
+                                    </div>> -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mt-6">
+                                            <input type="file" data-plugins="dropify" name="nid_front" />
+                                            <p class="text-muted text-center mt-2 mb-0">NID Front</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mt-6">
+                                            <input type="file" data-plugins="dropify" name="nid_back" />
+                                            <p class="text-muted text-center mt-2 mb-0">NID Back</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row -->
+                                <!-- <div class="row">
+                                    
+                                </div> -->
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            </form>
+                        </div>
+                    </div> <!-- end card-body -->
+                </div> <!-- end card-->
+            </div> <!-- end col -->
+        </div>
+        <!-- end row -->
+
+    </div> <!-- container -->
+
+</div> <!-- content -->
+
+
+{% endblock %}

@@ -1,0 +1,783 @@
+{% extends 'base.html' %}
+{% block title %} {{hotel.name}} {% endblock %}
+{% load static %}
+{% block content %}
+<!-- ================================
+    START BREADCRUMB TOP BAR
+================================= -->
+<section class="breadcrumb-top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-list breadcrumb-top-list">
+                    <ul class="list-items bg-transparent radius-none p-0">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>{{hotel.destination}}</li>
+                        <li>{{hotel.name}}</li>
+                    </ul>
+                </div><!-- end breadcrumb-list -->
+            </div><!-- end col-lg-12 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end breadcrumb-top-bar -->
+<!-- ================================
+    END BREADCRUMB TOP BAR
+================================= -->
+
+<!-- ================================
+    START BREADCRUMB AREA
+================================= -->
+<section class="breadcrumb-area bread-bg-7 py-0">
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-btn">
+                        <div class="btn-box">
+                            <a class="theme-btn" data-fancybox="video" data-src="#"
+                               data-speed="700">
+                                <i class="la la-video-camera mr-2"></i>Video
+                            </a>
+                            <a class="theme-btn" data-src="images/img1.jpg"
+                               data-fancybox="gallery"
+                               data-caption="Showing image - 01"
+                               data-speed="700">
+                                <i class="la la-photo mr-2"></i>More Photos
+                            </a>
+                        </div>
+                        <a class="d-none"
+                             data-fancybox="gallery"
+                             data-src="images/img2.jpg"
+                             data-caption="Showing image - 02"
+                             data-speed="700"></a>
+                        <a class="d-none"
+                             data-fancybox="gallery"
+                             data-src="images/img3.jpg"
+                             data-caption="Showing image - 03"
+                             data-speed="700"></a>
+                        <a class="d-none"
+                             data-fancybox="gallery"
+                             data-src="images/img4.jpg"
+                             data-caption="Showing image - 04"
+                             data-speed="700"></a>
+                    </div><!-- end breadcrumb-btn -->
+                </div><!-- end col-lg-12 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end breadcrumb-wrap -->
+</section><!-- end breadcrumb-area -->
+<!-- ================================
+    END BREADCRUMB AREA
+================================= -->
+
+<!-- ================================
+    START TOUR DETAIL AREA
+================================= -->
+<section class="tour-detail-area padding-bottom-90px">
+    <div class="single-content-navbar-wrap menu section-bg" id="single-content-navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single-content-nav" id="single-content-nav">
+                        <ul>
+                            <li><a data-scroll="description" href="#description" class="scroll-link active">Hotel Details</a></li>
+                            <li><a data-scroll="availability" href="#availability" class="scroll-link">Availability</a></li>
+                            <li><a data-scroll="amenities" href="#amenities" class="scroll-link">Amenities</a></li>
+                            <!-- <li><a data-scroll="faq" href="#faq" class="scroll-link">Faq</a></li>
+                            <li><a data-scroll="reviews" href="#reviews" class="scroll-link">Reviews</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end single-content-navbar-wrap -->
+    <div class="single-content-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="single-content-wrap padding-top-60px">
+                        <div id="description" class="page-scroll">
+                            <div class="single-content-item pb-4">
+                                <h3 class="title font-size-26">{{hotel.name}}</h3>
+                                <div class="d-flex align-items-center pt-2">
+                                    <p class="mr-2">{{hotel.address}}</p>
+                                    <!-- <p>
+                                        <span class="badge badge-warning text-white font-size-16">4.7</span>
+                                        <span>(4,209 Reviews)</span>
+                                    </p> -->
+                                </div>
+                            </div><!-- end single-content-item -->
+                            <div class="section-block"></div>
+                            <div class="single-content-item py-4">
+                                <div class="row">
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-hotel"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Hotel Type</h3>
+                                                <span class="font-size-13">{{hotel.rate}} Star</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-user"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Extra People</h3>
+                                                <span class="font-size-13">No Charge</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-bed"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Minimum Stay</h3>
+                                                <span class="font-size-13">{{hotel.min_stay}} Nights</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <!-- <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-money"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Security Deposit</h3>
+                                                <span class="font-size-13">$279</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-globe"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Country</h3>
+                                                <span class="font-size-13">{{hotel.destination.top}}</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-map"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">City</h3>
+                                                <span class="font-size-13">{{hotel.destination}}</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-user"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Neighborhood</h3>
+                                                <span class="font-size-13">République</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                    <div class="col-lg-4 responsive-column">
+                                        <div class="single-tour-feature d-flex align-items-center mb-3">
+                                            <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                <i class="la la-times"></i>
+                                            </div>
+                                            <div class="single-feature-titles">
+                                                <h3 class="title font-size-15 font-weight-medium">Cancellation</h3>
+                                                <span class="font-size-13">Strict</span>
+                                            </div>
+                                        </div><!-- end single-tour-feature -->
+                                    </div><!-- end col-lg-4 -->
+                                </div><!-- end row -->
+                            </div><!-- end single-content-item -->
+                            <div class="section-block"></div>
+                            <div class="single-content-item padding-top-40px padding-bottom-40px">
+                                <h3 class="title font-size-20">About {{hotel.name}}</h3>
+                                <p class="py-3">{{hotel.details}}</p>
+                            </div><!-- end single-content-item -->
+                            <div class="section-block"></div>
+                        </div><!-- end description -->
+                        <div id="availability" class="page-scroll">
+                            <div class="single-content-item padding-top-40px padding-bottom-30px">
+                                <h3 class="title font-size-20">Availability</h3>
+                                <div class="contact-form-action padding-bottom-35px">
+                                    <form method="post" action="{% url 'user_room_search' hotel.slug %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Check in - Check out</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-calendar form-icon"></span>
+                                                        <input class="date-range form-control" type="date" name="checkin">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Rooms</label>
+                                                    <div class="form-group">
+                                                        <div class="select-contain w-auto">
+                                                            <select class="select-contain-select" name="room">
+                                                                <option>Select Rooms</option>
+                                                                <option value="1">1 Room</option>
+                                                                <option value="2">2 Rooms</option>
+                                                                <option value="3">3 Rooms</option>
+                                                                <option value="4">4 Rooms</option>
+                                                                <option value="5">5 Rooms</option>
+                                                                <option value="6">6 Rooms</option>
+                                                                <option value="7">7 Rooms</option>
+                                                                <option value="8">8 Rooms</option>
+                                                                <option value="9">9 Rooms</option>
+                                                                <option value="10">10 Rooms</option>
+                                                                <option value="11">11 Rooms</option>
+                                                                <option value="12">12 Rooms</option>
+                                                                <option value="13">13 Rooms</option>
+                                                                <option value="14">14 Rooms</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Adults (18+)</label>
+                                                    <div class="form-group">
+                                                        <div class="select-contain w-auto">
+                                                            <select class="select-contain-select" name="guest">
+                                                                <option>Select Adults</option>
+                                                                <option value="1">1 Adults</option>
+                                                                <option value="2">2 Adults</option>
+                                                                <option value="3">3 Adults</option>
+                                                                <option value="4">4 Adults</option>
+                                                                <option value="5">5 Adults</option>
+                                                                <option value="6">6 Adults</option>
+                                                                <option value="7">7 Adults</option>
+                                                                <option value="8">8 Adults</option>
+                                                                <option value="9">9 Adults</option>
+                                                                <option value="10">10 Adults</option>
+                                                                <option value="11">11 Adults</option>
+                                                                <option value="12">12 Adults</option>
+                                                                <option value="13">13 Adults</option>
+                                                                <option value="14">14 Adults</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Children (0-17)</label>
+                                                    <div class="form-group">
+                                                        <div class="select-contain w-auto">
+                                                            <select class="select-contain-select" name="child">
+                                                                <option>Select Children</option>
+                                                                <option value="1">1 Children</option>
+                                                                <option value="2">2 Children</option>
+                                                                <option value="3">3 Children</option>
+                                                                <option value="4">4 Children</option>
+                                                                <option value="5">5 Children</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="btn-box">
+                                                    <button type="submit" class="theme-btn">Search Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div><!-- end contact-form-action -->
+                                <h3 class="title font-size-20">Available Rooms</h3>
+                                {% for room in room %}
+                                <div class="cabin-type padding-top-30px">
+                                    <div class="cabin-type-item seat-selection-item d-flex">
+                                        <div class="cabin-type-img flex-shrink-0">
+                                            <img src="{{room.thumbnails.url}}" alt="">
+                                        </div>
+                                        <div class="cabin-type-detail">
+                                            <h3 class="title">{{room.name}}</h3>
+                                            <div class="row padding-top-20px">
+                                                <div class="col-lg-6 responsive-column">
+                                                    <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                        <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                            <i class="la la-wifi"></i>
+                                                        </div>
+                                                        <div class="single-feature-titles">
+                                                            <h3 class="title font-size-15 font-weight-medium">Free Wi-Fi</h3>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end col-lg-6 -->
+                                                 <div class="col-lg-6 responsive-column">
+                                                     <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                         <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                             <i class="la la-bed"></i>
+                                                         </div>
+                                                         <div class="single-feature-titles">
+                                                             <h3 class="title font-size-15 font-weight-medium">{{room.number_of_bed}} Beds</h3>
+                                                         </div>
+                                                     </div>
+                                                </div><!-- end col-lg-6 -->
+                                                <div class="col-lg-6 responsive-column">
+                                                    <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                        <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                            <i class="la la-building"></i>
+                                                        </div>
+                                                        <div class="single-feature-titles">
+                                                            <h3 class="title font-size-15 font-weight-medium">{{room.room_footage}} m²</h3>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end col-lg-6 -->
+                                                 <div class="col-lg-6 responsive-column">
+                                                     <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                         <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                             <i class="la la-hotel"></i>
+                                                         </div>
+                                                         <div class="single-feature-titles">
+                                                             <h3 class="title font-size-15 font-weight-medium">Shower and bathtub</h3>
+                                                         </div>
+                                                     </div>
+                                                </div><!-- end col-lg-6 -->
+                                            </div><!-- end row -->
+                                            <div class="room-photos">
+                                                <!-- <a class="btn theme-btn-hover-gray" data-src="images/img1.jpg"
+                                                   data-fancybox="gallery"
+                                                   data-caption="Showing image - 01"
+                                                   data-speed="700">
+                                                    <i class="la la-photo mr-2"></i>Room Photos
+                                                </a> -->
+                                                <a class="d-none"
+                                                     data-fancybox="gallery"
+                                                     data-src="images/img2.jpg"
+                                                     data-caption="Showing image - 02"
+                                                     data-speed="700"></a>
+                                                <a class="d-none"
+                                                     data-fancybox="gallery"
+                                                     data-src="images/img3.jpg"
+                                                     data-caption="Showing image - 03"
+                                                     data-speed="700"></a>
+                                                <a class="d-none"
+                                                     data-fancybox="gallery"
+                                                     data-src="images/img4.jpg"
+                                                     data-caption="Showing image - 04"
+                                                     data-speed="700"></a>
+                                            </div>
+                                        </div>
+                                        <div class="cabin-price">
+                                            <p class="text-uppercase font-size-14">Per/night<strong class="mt-n1 text-black font-size-18 font-weight-black d-block">{{room.price}}</strong></>
+                                            <div class="custom-checkbox mb-0">
+                                                <!-- <input type="checkbox" id="selectChb1"> -->
+                                                <a class="theme-btn theme-btn-small" href="{% url 'single_room' room.slug %}">Select</a>
+                                                <!-- <label for="selectChb1" >Select</label> -->
+                                            </div>
+                                        </div>
+                                    </div><!-- end cabin-type-item -->
+                                </div><!-- end cabin-type -->
+                                {% endfor %}
+                            </div><!-- end single-content-item -->
+                            <div class="section-block"></div>
+                        </div><!-- end location-map -->
+                        <div id="amenities" class="page-scroll">
+                            <div class="single-content-item padding-top-40px padding-bottom-20px">
+                                <h3 class="title font-size-20">Amenities</h3>
+                                <div class="amenities-feature-item pt-4">
+                                    <div class="row">
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-wifi"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">WI-FI</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-check"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Swimming Pool</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-television"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Television</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-coffee"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Coffee</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-tree"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Air Conditioning</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-gear"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Fitness Facility</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-check"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Fridge</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-glass"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Wine Bar</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-music"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Entertainment</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-lock"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Secure Vault</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                         <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-car"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Pick And Drop</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-check"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Room Service</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-check-circle"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Pets Allowed</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-coffee"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Breakfast</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-car"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Free Parking</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-fire"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Fire Place</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-wheelchair"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Handicap Accessible</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-user-secret"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Doorman</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-building"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Elevator In Building</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-gift"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Suitable For Events</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                        <div class="col-lg-4 responsive-column">
+                                            <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-3">
+                                                    <i class="la la-gamepad"></i>
+                                                </div>
+                                                <div class="single-feature-titles">
+                                                    <h3 class="title font-size-15 font-weight-medium">Play Place</h3>
+                                                </div>
+                                            </div><!-- end single-tour-feature -->
+                                        </div><!-- end col-lg-4 -->
+                                    </div><!-- end row -->
+                                </div>
+                            </div><!-- end single-content-item -->
+                            <div class="section-block"></div>
+                        </div><!-- end faq -->
+                    </div><!-- end single-content-wrap -->
+                </div><!-- end col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="sidebar single-content-sidebar mb-0">
+                        <div class="sidebar-widget single-content-widget">
+                            <h3 class="title stroke-shape">Enquiry Form</h3>
+                            <div class="enquiry-forum">
+                                <div class="form-box">
+                                    <div class="form-content">
+                                        <div class="contact-form-action">
+                                            <form method="post" action="{% url 'hotel_enquiry' hotel.slug %}">
+                                                {% csrf_token %}
+                                                <div class="input-box">
+                                                    <label class="label-text">Your Name</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-user form-icon"></span>
+                                                        <input class="form-control" type="text" name="name" placeholder="Your name">
+                                                    </div>
+                                                </div>
+                                                <div class="input-box">
+                                                    <label class="label-text">Your Email</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-envelope-o form-icon"></span>
+                                                        <input class="form-control" type="email" name="email" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="input-box">
+                                                    <label class="label-text">Message</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-pencil form-icon"></span>
+                                                        <textarea class="message-control form-control" name="message" placeholder="Write message"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="input-box">
+                                                    <div class="form-group">
+                                                        <div class="custom-checkbox mb-0">
+                                                            <input type="checkbox" id="agreeChb">
+                                                            <label for="agreeChb">I agree with <a href="#">Terms of Service</a> and
+                                                                <a href="#">Privacy Statement</a></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="btn-box">
+                                                    <button type="submit" class="theme-btn">Submit Enquiry</button>
+                                                </div>
+                                            </form>
+                                        </div><!-- end contact-form-action -->
+                                    </div><!-- end form-content -->
+                                </div><!-- end form-box -->
+                            </div><!-- end enquiry-forum -->
+                        </div><!-- end sidebar-widget -->
+                        <div class="sidebar-widget single-content-widget">
+                            <h3 class="title stroke-shape">Why Book With Us?</h3>
+                            <div class="sidebar-list">
+                                <ul class="list-items">
+                                    <li><i class="la la-dollar icon-element mr-2"></i>No-hassle best price guarantee</li>
+                                    <li><i class="la la-microphone icon-element mr-2"></i>Customer care available 24/7</li>
+                                    <li><i class="la la-thumbs-up icon-element mr-2"></i>Hand-picked Tours & Activities</li>
+                                    <li><i class="la la-file-text icon-element mr-2"></i>Free Travel Insureance</li>
+                                </ul>
+                            </div><!-- end sidebar-list -->
+                        </div><!-- end sidebar-widget -->
+                        <div class="sidebar-widget single-content-widget">
+                            <h3 class="title stroke-shape">Get a Question?</h3>
+                            <p class="font-size-14 line-height-24">Do not hesitate to give us a call. We are an expert team and we are happy to talk to you.</p>
+                            <div class="sidebar-list pt-3">
+                                <ul class="list-items">
+                                    <li><i class="la la-phone icon-element mr-2"></i><a href="tel:{{hotel.mobile}}">{{hotel.mobile}}</a></li>
+                                    <li><i class="la la-envelope icon-element mr-2"></i><a href="mailto:{{hotel.mail}}">{{hotel.mail}}</a></li>
+                                </ul>
+                            </div><!-- end sidebar-list -->
+                        </div><!-- end sidebar-widget -->
+                    </div><!-- end sidebar -->
+                </div><!-- end col-lg-4 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end single-content-box -->
+</section><!-- end tour-detail-area -->
+<!-- ================================
+    END TOUR DETAIL AREA
+================================= -->
+
+<div class="section-block"></div>
+
+<!-- ================================
+    START RELATE TOUR AREA
+================================= -->
+<section class="related-tour-area section--padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h2 class="sec__title">You might also like</h2>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-12 -->
+        </div><!-- end row -->
+        <div class="row padding-top-50px">
+            {% for hotel in hotel1 %}
+            <div class="col-lg-4 responsive-column">
+                <div class="card-item">
+                    <div class="card-img">
+                        <a href="{% url 'hotel_single' hotel.slug %}" class="d-block">
+                            <img src="{{hotel.thumbnails.url}}" alt="{{hotel.name}}">
+                        </a>
+                        <span class="badge">Bestseller</span>
+                        <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top" title="Bookmark">
+                            <i class="la la-heart-o"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"><a href="{% url 'hotel_single' hotel.slug %}">{{hotel.name}}</a></h3>
+                        <p class="card-meta">{{hotel.address}}</p>
+                        <!-- <div class="card-rating">
+                            <span class="badge text-white">4.4/5</span>
+                            <span class="review__text">Average</span>
+                            <span class="rating__text">(30 Reviews)</span>
+                        </div> -->
+                        <div class="card-price d-flex align-items-center justify-content-between">
+                            <!-- <p>
+                                <span class="price__from">From</span>
+                                <span class="price__num">$88.00</span>
+                                <span class="price__text">Per night</span>
+                            </p> -->
+                            <a href="{% url 'hotel_single' hotel.slug %}" class="btn-text">See details<i class="la la-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div><!-- end card-item -->
+            </div><!-- end col-lg-4 -->
+            {% endfor %}
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end related-tour-area -->
+<!-- ================================
+    END RELATE TOUR AREA
+================================= -->
+
+<!-- ================================
+    START CTA AREA
+================================= -->
+<section class="cta-area subscriber-area section-bg-2 padding-top-60px padding-bottom-60px">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="section-heading">
+                    <h2 class="sec__title font-size-30 text-white">Subscribe to see Secret Deals</h2>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-7 -->
+            <div class="col-lg-5">
+                <div class="subscriber-box">
+                    <div class="contact-form-action">
+                        <form action="#">
+                            <div class="input-box">
+                                <label class="label-text text-white">Enter email address</label>
+                                <div class="form-group mb-0">
+                                    <span class="la la-envelope form-icon"></span>
+                                    <input class="form-control" type="email" name="email" placeholder="Email address">
+                                    <button class="theme-btn theme-btn-small submit-btn" type="submit">Subscribe</button>
+                                    <span class="font-size-14 pt-1 text-white-50"><i class="la la-lock mr-1"></i>Don't worry your information is safe with us.</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-5 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end cta-area -->
+<!-- ================================
+    END CTA AREA
+================================= -->
+
+{% endblock %}

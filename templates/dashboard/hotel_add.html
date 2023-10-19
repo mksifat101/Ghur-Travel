@@ -1,0 +1,203 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Add Hotel</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Add Hotel</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <!-- Form row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Search Parnet</h4>
+                            <form method="post" action="#">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Filter</label>
+                                        <select name="filter" id="ordfilter" class="form-control">
+                                            <option value="id">ID</option>
+                                            <option value="phone">Mobile Number</option>
+                                            <option value="email">Email</option>
+                                            <option value="username">Username</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label"> Partner <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="partnerfilter" name="partner">
+                                    </div>
+                                </div>
+                                <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button> -->
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+
+            <!-- Form row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Input Hotel Information</h4>
+                            <form method="post" action="{% url 'dashboard_hotel_add' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Partner <span class="text-danger">*</span></label>
+                                        <div id="get_hotel_prt"></div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Ex: Hotel Place" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Rate <span
+                                                class="text-danger">*</span></label>
+                                        <select name="rate" class="form-control">
+                                            <option value="1">1 Start</option>
+                                            <option value="2">2 Start</option>
+                                            <option value="3">3 Start</option>
+                                            <option value="4">4 Start</option>
+                                            <option value="5">5 Start</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Details About Hotel</label>
+                                        <textarea class="form-control" name="details" id="example-textarea" rows="2"
+                                            placeholder="Hotel Details"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Logo</label>
+                                        <input type="file" id="example-fileinput" name="logo" class="form-control-file">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Thumbnails</label>
+                                        <input type="file" id="example-fileinput" name="thumbnails"
+                                            class="form-control-file">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Contact Number <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="mobile" placeholder="Ex: +880"
+                                            required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Email Address <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="mail"
+                                            placeholder="Ex: name@example.com" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Address <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="address"
+                                            placeholder="Ex: Mirpur 10" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Top Destination <span
+                                                class="text-danger">*</span></label>
+                                        <select name="topdst_id" id="topdst_partner" class="form-control">
+                                            <option>Select Top Destination</option>
+                                            {% for topdst in topdst %}
+                                            <option value="{{topdst.id}}">{{topdst.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Destination <span
+                                                class="text-danger">*</span></label>
+                                        <select name="dst_id" id="dst_partner" class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Owner <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="owner"
+                                            placeholder="Ex: Sajid Ahmed" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Website <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="website"
+                                            placeholder="Ex: www.google.com" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Promo Video Link</label>
+                                        <input type="text" class="form-control" name="promo_video"
+                                            placeholder="Ex: www.youtube.com" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Check Out</label>
+                                        <input class="form-control" id="example-time" type="time" name="checkout">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Minimum Stay</label>
+                                        <input class="form-control" id="example-time" type="number" name="min_stay"
+                                            value="1">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Book Before number of day</label>
+                                        <input class="form-control" type="number" name="min_booking_number" value="1">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Gallery</label>
+                                        <input type="file" id="example-fileinput" multiple name="hotelgallery[]"
+                                            class="form-control-file">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Hotel Fecilitis <span
+                                                class="text-danger">*</span></label>
+                                        {% for fec in fec %}
+                                        <div class="checkbox checkbox-primary mb-2">
+                                            <input id="{{fec.feciliti}}" value="{{fec.feciliti}}" type="checkbox"
+                                                name="feciliti[]">
+                                            <label for="{{fec.feciliti}}">
+                                                {{fec.feciliti}}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+</div> <!-- content -->
+
+
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends 'front_base.html' %}
+{% block title %} User Profile {% endblock %}
+{% load static %}
+{% block content %}
+
+<!-- Common Banner Area -->
+<section id="common_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="common_bannner_text">
+                    <h2>Dashboard</h2>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Dashboard</a></li>
+                        <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Area -->
+<section id="dashboard_main_arae" class="section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="dashboard_sidebar">
+                    <div class="dashboard_sidebar_user">
+                        <img src="{% static 'assets/img/common/dashboard-user.png' %}" alt="img">
+                        <h3>{{cst.user.first_name}} {{cst.user.last_name}}</h3>
+                        <p><a href="tel:{{cst.user.phone}}">{{cst.user.phone}}</a></p>
+                        <p><a href="mailto:{{cst.user.email}}">{{cst.user.email}}</a></p>
+                    </div>
+                    <div class="dashboard_menu_area">
+                        <ul>
+                            <li><a href="{% url 'user_dashboard' %}" ><i
+                                        class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                            <!-- <li class="dashboard_dropdown_button" id="dashboard_dropdowns"><i
+                                    class="fas fa-address-card"></i>My bookings
+                                <span> <i class="fas fa-angle-down"></i></span>
+                                <div class="booing_sidebar_dashboard" id="show_dropdown_item" style="display: none;">
+                                    <ul>
+                                        <li><a href="{% url 'user_booking_list' %}"><i class="fas fa-hotel"></i>Hotel
+                                                booking</a></li>
+                                        <li><a href="flight-booking.html"><i class="fas fa-paper-plane"></i>Flight
+                                                booking</a></li>
+                                        <li><a href="booking-history.html">
+                                                <i class="fas fa-history"></i>Booking history</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            <li><a href="{% url 'user_booking_list' %}"><i class="fas fa-tachometer-alt"></i>My Room
+                                    Booking</a></li>
+                            <li><a href="{% url 'user_flight_booking_list' %}" class="active"><i class="fas fa-tachometer-alt"></i>Flight
+                                    Booking</a></li>
+                            <li><a href="#"><i class="fas fa-user-circle"></i>My profile</a></li>
+                            <li>
+                                <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fas fa-sign-out-alt"></i>Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="dashboard_common_table">
+                    <h3>My Flight bookings</h3>
+                    <div class="table-responsive-lg table_common_area">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Booking type</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Flight Time</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for book in book %}
+                                <tr>
+                                    <td>{{book.id}}.</td>
+                                    <td>Flight</td>
+                                    <td>{{book.origin}}</td>
+                                    <td>{{book.destination}}</td>
+                                    <td>{{book.takeof}}</td>
+                                    <td>{{book.price}}</td>
+                                    {% if book.payment == True %}
+                                    <td class="complete">Completed</td>
+                                    {% else %}
+                                    <td class="complete">Unpaid</td>
+                                    {% endif %}
+                                    <td><i class="fas fa-eye"></i></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination_area">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Cta Area -->
+<section id="cta_area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="cta_left">
+                    <div class="cta_icon">
+                        <img src="{% static 'assets/img/common/email.png' %}" alt="icon">
+                    </div>
+                    <div class="cta_content">
+                        <h4>Get the latest news and offers</h4>
+                        <h2>Subscribe to our newsletter</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="cat_form">
+                    <form id="cta_form_wrappper">
+                        <div class="input-group"><input type="text" class="form-control"
+                                placeholder="Enter your mail address"><button class="btn btn_theme btn_md"
+                                type="button">Subscribe</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body logout_modal_content">
+                <div class="btn_modal_closed">
+                    <button type="button" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <h3>
+                    Are you sure? <br>
+                    you want to log out.
+                </h3>
+                <div class="logout_approve_button">
+                    <a href="{% url 'logout' %}" class="btn btn_theme btn_md" style="color: white;">Yes Confirm</a>
+                    <button data-bs-dismiss="modal" class="btn btn_border btn_md">No Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

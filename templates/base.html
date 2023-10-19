@@ -1,0 +1,609 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="Travel Management System Development by MK Sifat" name="description" />
+    <meta name="author" content="Mk Sifat" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %} {% endblock %} | Guur Travel</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/line-awesome.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/daterangepicker.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animated-headline.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  </head>
+  <body>
+    <!-- start cssload-loader -->
+    <!-- <div class="preloader" id="preloader">
+      <div class="loader">
+        <svg class="spinner" viewBox="0 0 50 50">
+          <circle
+            class="path"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+          ></circle>
+        </svg>
+      </div>
+    </div> -->
+    <!-- end cssload-loader -->
+
+    <!-- ================================
+            START HEADER AREA
+================================= -->
+<header class="header-area">
+      <div class="header-menu-wrapper padding-right-100px padding-left-100px">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="menu-wrapper">
+                <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
+                <div class="logo">
+                  <a href="{% url 'home' %}"
+                    ><img src="images/logo.png" alt="logo"
+                  /></a>
+                  <div class="menu-toggler">
+                    <i class="la la-bars"></i>
+                    <i class="la la-times"></i>
+                  </div>
+                  <!-- end menu-toggler -->
+                </div>
+                <!-- end logo -->
+                {% include 'includes/navbar.html' %}
+                <!-- end main-menu-content -->
+                <div class="nav-btn">
+                  {% if request.user.is_authenticated %}
+                  <a href="{% url 'dashboard' %}" class="theme-btn">My Account</a>
+                  {% else %}
+                  <a href="{% url 'login' %}" class="theme-btn">Login</a>
+                  {% endif %}
+                </div>
+                <!-- end nav-btn -->
+              </div>
+              <!-- end menu-wrapper -->
+            </div>
+            <!-- end col-lg-12 -->
+          </div>
+          <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+      </div>
+      <!-- end header-menu-wrapper -->
+    </header>
+    <!-- ================================
+         END HEADER AREA
+================================= -->
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- ================================
+       START FOOTER AREA
+================================= -->
+<section
+class="footer-area section-bg padding-top-100px padding-bottom-30px">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 responsive-column">
+      <div class="footer-item">
+        <div class="footer-logo padding-bottom-30px">
+          <a href="{% url 'home' %}" class="foot__logo"
+            ><img src="images/logo.png" alt="logo"
+          /></a>
+        </div>
+        <!-- end logo -->
+        <p class="footer__desc">
+          Morbi convallis bibendum urna ut viverra. Maecenas consequat
+        </p>
+        <ul class="list-items pt-3">
+          <li>
+            3015 Grand Ave, Coconut Grove,<br />
+            Cerrick Way, FL 12345
+          </li>
+          <li>+123-456-789</li>
+          <li><a href="#">email@yourwebsite.com</a></li>
+        </ul>
+      </div>
+      <!-- end footer-item -->
+    </div>
+    <!-- end col-lg-3 -->
+    <div class="col-lg-3 responsive-column">
+      <div class="footer-item">
+        <h4
+          class="title curve-shape pb-3 margin-bottom-20px"
+          data-text="curvs"
+        >
+          Company
+        </h4>
+        <ul class="list-items list--items">
+          <li><a href="{% url 'about' %}">About us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Advertising</a></li>
+        </ul>
+      </div>
+      <!-- end footer-item -->
+    </div>
+    <!-- end col-lg-3 -->
+    <div class="col-lg-3 responsive-column">
+      <div class="footer-item">
+        <h4
+          class="title curve-shape pb-3 margin-bottom-20px"
+          data-text="curvs"
+        >
+          Other Links
+        </h4>
+        <ul class="list-items list--items">
+          <li><a href="#">USA Vacation Packages</a></li>
+          <li><a href="#">USA Flights</a></li>
+          <li><a href="#">USA Hotels</a></li>
+          <li><a href="#">USA Car Hire</a></li>
+          <li><a href="#">Create an Account</a></li>
+          <li><a href="#">Trizen Reviews</a></li>
+        </ul>
+      </div>
+      <!-- end footer-item -->
+    </div>
+    <!-- end col-lg-3 -->
+    <div class="col-lg-3 responsive-column">
+      <div class="footer-item">
+        <h4
+          class="title curve-shape pb-3 margin-bottom-20px"
+          data-text="curvs"
+        >
+          Subscribe now
+        </h4>
+        <p class="footer__desc pb-3">
+          Subscribe for latest updates & promotions
+        </p>
+        <div class="contact-form-action">
+          <form action="#">
+            <div class="input-box">
+              <label class="label-text">Enter email address</label>
+              <div class="form-group mb-0">
+                <span class="la la-envelope form-icon"></span>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                />
+                <button
+                  class="theme-btn theme-btn-small submit-btn"
+                  type="submit"
+                >
+                  Go
+                </button>
+                <span class="font-size-14 pt-1"
+                  ><i class="la la-lock mr-1"></i>Your information is safe
+                  with us.</span
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- end footer-item -->
+    </div>
+    <!-- end col-lg-3 -->
+  </div>
+  <!-- end row -->
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <div class="term-box footer-item">
+        <ul class="list-items list--items d-flex align-items-center">
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end col-lg-8 -->
+    <div class="col-lg-4">
+      <div class="footer-social-box text-right">
+        <ul class="social-profile">
+          <li>
+            <a href="#"><i class="lab la-facebook-f"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="lab la-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="lab la-instagram"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="lab la-linkedin-in"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end col-lg-4 -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end container -->
+<div class="section-block mt-4"></div>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <div class="copy-right padding-top-30px">
+        <p class="copy__desc">
+          &copy; Copyright Guur Travels 2020. Development
+          <span class="la la-heart"></span> by
+          <a href="https://mksifat.com"
+            >Mk Sifat</a
+          >
+        </p>
+      </div>
+      <!-- end copy-right -->
+    </div>
+    <!-- end col-lg-7 -->
+    <div class="col-lg-5">
+      <div
+        class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px"
+      >
+        <h3 class="title font-size-15 pr-2">We Accept</h3>
+        <img src="{% static 'assets/images/cards.png' %}" alt="" style="width: 300px;" />
+      </div>
+      <!-- end copy-right-content -->
+    </div>
+    <!-- end col-lg-5 -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end container -->
+</section>
+<!-- end footer-area -->
+<!-- ================================
+ START FOOTER AREA
+================================= -->
+
+<!-- start back-to-top -->
+<div id="back-to-top">
+<i class="la la-angle-up" title="Go top"></i>
+</div>
+<!-- end back-to-top -->
+
+<!-- end modal-shared -->
+<div class="modal-popup">
+<div
+  class="modal fade"
+  id="signupPopupForm"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title title" id="exampleModalLongTitle">
+            Sign Up
+          </h5>
+          <p class="font-size-14">Hello! Welcome Create a New Account</p>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" class="la la-close"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-form-action">
+          <form method="post">
+            <div class="input-box">
+              <label class="label-text">Username</label>
+              <div class="form-group">
+                <span class="la la-user form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type your username"
+                />
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="input-box">
+              <label class="label-text">Email Address</label>
+              <div class="form-group">
+                <span class="la la-envelope form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type your email"
+                />
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="input-box">
+              <label class="label-text">Password</label>
+              <div class="form-group">
+                <span class="la la-lock form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type password"
+                />
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="input-box">
+              <label class="label-text">Repeat Password</label>
+              <div class="form-group">
+                <span class="la la-lock form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type again password"
+                />
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="btn-box pt-3 pb-4">
+              <button type="button" class="theme-btn w-100">
+                Register Account
+              </button>
+            </div>
+            <div class="action-box text-center">
+              <p class="font-size-14">Or Sign up Using</p>
+              <ul class="social-profile py-3">
+                <li>
+                  <a href="#" class="bg-5 text-white"
+                    ><i class="lab la-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-6 text-white"
+                    ><i class="lab la-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-7 text-white"
+                    ><i class="lab la-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-5 text-white"
+                    ><i class="lab la-linkedin-in"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+        <!-- end contact-form-action -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end modal-popup -->
+
+<!-- end modal-shared -->
+<div class="modal-popup">
+<div
+  class="modal fade"
+  id="loginPopupForm"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title title" id="exampleModalLongTitle2">
+            Login
+          </h5>
+          <p class="font-size-14">Hello! Welcome to your account</p>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" class="la la-close"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-form-action">
+          <form method="post">
+            <div class="input-box">
+              <label class="label-text">Username</label>
+              <div class="form-group">
+                <span class="la la-user form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type your username"
+                />
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="input-box">
+              <label class="label-text">Password</label>
+              <div class="form-group mb-2">
+                <span class="la la-lock form-icon"></span>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="text"
+                  placeholder="Type your password"
+                />
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between"
+              >
+                <div class="custom-checkbox mb-0">
+                  <input type="checkbox" id="rememberchb" />
+                  <label for="rememberchb">Remember me</label>
+                </div>
+                <p class="forgot-password">
+                  <a href="#">Forgot Password?</a>
+                </p>
+              </div>
+            </div>
+            <!-- end input-box -->
+            <div class="btn-box pt-3 pb-4">
+              <button type="button" class="theme-btn w-100">
+                Login Account
+              </button>
+            </div>
+            <div class="action-box text-center">
+              <p class="font-size-14">Or Login Using</p>
+              <ul class="social-profile py-3">
+                <li>
+                  <a href="#" class="bg-5 text-white"
+                    ><i class="lab la-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-6 text-white"
+                    ><i class="lab la-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-7 text-white"
+                    ><i class="lab la-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-5 text-white"
+                    ><i class="lab la-linkedin-in"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+        <!-- end contact-form-action -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end modal-popup -->
+
+<!-- Template JS Files -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
+<script src="{% static 'assets/js/daterangepicker.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countTo.min.js' %}"></script>
+<script src="{% static 'assets/js/animated-headline.js' %}"></script>
+<script src="{% static 'assets/js/jquery.ripples-min.js' %}"></script>
+<script src="{% static 'assets/js/quantity-input.js' %}"></script>
+<script src="{% static 'assets/js/navbar-sticky.js' %}"></script>
+<script src="{% static 'assets/js/total-price.js' %}"></script>
+<script src="{% static 'assets/js/leaflet.js' %}"></script>
+<script src="{% static 'assets/js/map.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#inroom').change(function () {
+            var room = $(this).val();
+            var adult = $('#adult').val();
+            var room_id = $('#room_id').val();
+            var child = $('#child').val();
+            $.ajax({
+                url: "{% url 'get_room_booking_total' %}",
+                data: {
+                    'inroom': inroom,
+                    'adult': adult,
+                    'child': child,
+                    'room_id': room_id,
+                },
+                success: function (data) {
+                    $('#total').html(data)
+                }
+            });
+        });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+        // Function to calculate the total price
+        function calculateTotalPrice() {
+            // Get the values of the selected options and checkboxes
+            var from_date = $("#room_start_date").val();
+            var to_date = $("#room_end_date").val();
+            var room = parseFloat($("#total_room option:selected").val()); // Room price
+            var roomPrice = parseInt($("#qtyInput[name='room_price']").val());
+            var cleaningFee = $("#cleaningChb").is(":checked") ? 15.0 : 0.0; // Cleaning fee
+            var airportPickupFee = $("#airportPickupChb").is(":checked") ? 20.0 : 0.0; // Airport pickup fee
+            var breakfastFee = $("#breakfastChb").is(":checked") ? 10.0 : 0.0; // Breakfast fee
+            var parkingFee = $("#parkingChb").is(":checked") ? 5.0 : 0.0; // Parking fee
+            var adults = parseInt($("#qtyInput[name='adult']").val()); // Number of adults
+            var children = parseInt($("#qtyInput[name='child']").val()); // Number of children
+            
+            // Create Date objects for the two dates
+            var startDate = new Date(from_date);
+            var endDate = new Date(to_date);
+            // Calculate the time difference in milliseconds
+            var timeDifference = endDate - startDate;
+
+            // Convert the time difference to days
+            var daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+            // Calculate the number of days by dividing the time difference by the number of milliseconds in a day
+            // var totalDays = timeDifference / (1000 * 60 * 60 * 24);
+            // Calculate the total price
+            var totalPrice = roomPrice * room;
+            var totalP = totalPrice * daysDifference;
+    
+            // Update the displayed total price
+            // $("#total_room_price").text(totalP).val();
+            document.getElementById("total_room_price").value = totalP;
+            // alert(totalP)
+        }
+    
+        // Attach the calculateTotalPrice function to form elements change events
+        $("#total_room, input[type=checkbox],input[type=date], input[type=text]").change(calculateTotalPrice);
+    });
+    </script>
+</body>
+</html>

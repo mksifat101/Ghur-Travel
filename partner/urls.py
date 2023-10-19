@@ -1,0 +1,32 @@
+from django.urls import path
+from partner import views
+
+urlpatterns = [
+    path('dashboard', views.partner_dashboard, name='partner_dashboard'),
+    path('hotel/fecilitis', views.pertner_hotel_fecilitis,
+         name='pertner_hotel_fecilitis'),
+    path('hotel/add-fecilitis', views.pertner_hotel_fecilitis_add,
+         name='pertner_hotel_fecilitis_add'),
+    path('hotel/update-fecilitis/<id>', views.pertner_hotel_fecilitis_update,
+         name='pertner_hotel_fecilitis_update'),
+    path('room/fecilitis', views.pertner_room_fecilitis,
+         name='pertner_room_fecilitis'),
+    path('room/add-fecilitis', views.pertner_room_fecilitis_add,
+         name='pertner_room_fecilitis_add'),
+    path('room/update-fecilitis/<id>', views.pertner_room_fecilitis_update,
+         name='pertner_room_fecilitis_update'),
+    path('hotels', views.partner_hotel, name='partner_hotel'),
+    path('hotel/<slug>', views.partner_hotel_single, name='partner_hotel_single'),
+    path('hotel/edit/<id>', views.partner_hotel_edit, name='partner_hotel_edit'),
+    path('hotel/add-hotel', views.partner_hotel_add, name='partner_hotel_add'),
+    path('rooms', views.partner_room, name='partner_room'),
+    path('room/<slug>', views.partner_room_single, name='partner_room_single'),
+    path('room/edit/<id>', views.partner_room_edit, name='partner_room_edit'),
+    path('room/room-add', views.partner_room_add, name='partner_room_add'),
+    path('booking', views.partner_booking, name='partner_booking'),
+    path('booking/add-booking', views.partner_booking_add,
+         name='partner_booking_add'),
+    path('booking-update/<id>', views.pertner_room_book_update,
+         name='pertner_room_book_update'),
+    path('enquiry', views.partner_enquiry, name='partner_enquiry'),
+]

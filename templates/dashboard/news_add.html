@@ -1,0 +1,81 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Add News</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Add News</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <!-- Form row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title">Input News Information</h4>
+                            <form method="post" action="{% url 'dashboard_news_add' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Title <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Ex: Hotel Place" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Category <span
+                                                class="text-danger">*</span></label>
+                                        <select name="cat" class="form-control">
+                                            <option selected>Select Category</option>
+                                            {% for cat in cat %}
+                                            <option value="{{cat.id}}">{{cat.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Details About Room</label>
+                                        <textarea class="form-control" name="details" id="example-textarea" rows="2"
+                                            placeholder="Room Details"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Thumbnails</label>
+                                        <input type="file" id="example-fileinput" name="thumbnails"
+                                            class="form-control-file">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div> <!-- end card-body -->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+</div> <!-- content -->
+
+
+{% endblock %}

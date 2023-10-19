@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="Travel Management System Development by MK Sifat" name="description" />
+    <meta name="author" content="Mk Sifat" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %} | Guur Travel</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/line-awesome.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/daterangepicker.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/animated-headline.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/leaflet.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+</head>
+<body class="section-bg">
+<!-- start cssload-loader -->
+<!-- <div class="preloader" id="preloader">
+    <div class="loader">
+        <svg class="spinner" viewBox="0 0 50 50">
+            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+        </svg>
+    </div>
+</div> -->
+<!-- end cssload-loader -->
+
+{% include 'includes/user_sidebar.html' %}
+
+{% block content %}
+
+{% endblock %}
+<div class="border-top mt-4"></div>
+<div class="row align-items-center">
+    <div class="col-lg-7">
+        <div class="copy-right padding-top-30px">
+            <p class="copy__desc">
+                &copy; Copyright Guur Travels 2020. Development
+                <span class="la la-heart"></span> by <a href="https://mksifat.com">Mk Sifat</a>
+              </p>
+        </div><!-- end copy-right -->
+    </div><!-- end col-lg-7 -->
+    <div class="col-lg-5">
+        <div class="copy-right-content text-right padding-top-30px">
+            <ul class="social-profile">
+                <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
+                <li><a href="#"><i class="lab la-twitter"></i></a></li>
+                <li><a href="#"><i class="lab la-instagram"></i></a></li>
+                <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
+            </ul>
+        </div><!-- end copy-right-content -->
+    </div><!-- end col-lg-5 -->
+</div><!-- end row -->
+</div><!-- end container-fluid -->
+</div><!-- end dashboard-main-content -->
+</div><!-- end dashboard-content-wrap -->
+</section><!-- end dashboard-area -->
+<!-- ================================
+END DASHBOARD AREA
+================================= -->
+
+<!-- start scroll top -->
+<div id="back-to-top">
+<i class="la la-angle-up" title="Go top"></i>
+</div>
+<!-- end scroll top -->
+
+<!-- Template JS Files -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
+<script src="{% static 'assets/js/daterangepicker.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countTo.min.js' %}"></script>
+<script src="{% static 'assets/js/animated-headline.js' %}"></script>
+<script src="{% static 'assets/js/jquery.ripples-min.js' %}"></script>
+<script src="{% static 'assets/js/quantity-input.js' %}"></script>
+<script src="{% static 'assets/js/navbar-sticky.js' %}"></script>
+<script src="{% static 'assets/js/total-price.js' %}"></script>
+<script src="{% static 'assets/js/leaflet.js' %}"></script>
+<script src="{% static 'assets/js/map.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

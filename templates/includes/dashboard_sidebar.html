@@ -1,0 +1,92 @@
+{% load static %}
+<div class="left-side-menu">
+
+    <div class="h-100" data-simplebar>
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul id="side-menu">
+
+                <li class="menu-title">Navigation</li>
+
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i data-feather="airplay"></i>
+                        <span> Dashboards </span>
+                    </a>
+                </li>
+
+                <li class="menu-title mt-2">Apps</li>
+                <li>
+                    <a href="{% url 'destination' %}">
+                        <i data-feather="user"></i>
+                        <span> Destination </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'partner' %}">
+                        <i data-feather="user"></i>
+                        <span> Partners </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_customer' %}">
+                        <i data-feather="home"></i>
+                        <span> Customer </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_hotel_list' %}">
+                        <i data-feather="home"></i>
+                        <span> Hotels </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_room' %}">
+                        <i data-feather="inbox"></i>
+                        <span> Rooms </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'dashboard_booking' %}">
+                        <i data-feather="grid"></i>
+                        <span> Booking </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_flight_booking' %}">
+                        <i data-feather="send"></i>
+                        <span> Flight Booking </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_enquiry' %}">
+                        <i data-feather="grid"></i>
+                        <span> Enquiry </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_news' %}">
+                        <i data-feather="grid"></i>
+                        <span> News </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboard_team' %}">
+                        <i data-feather="grid"></i>
+                        <span> Teams </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Sidebar -left -->
+
+</div>

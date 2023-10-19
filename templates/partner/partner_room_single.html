@@ -1,0 +1,149 @@
+{% extends 'partner_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Partner</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Room</a></li>
+                                <li class="breadcrumb-item active">Room Details</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Room Detail</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-lg-5">
+
+                                <div class="tab-content pt-0">
+                                    <div class="tab-pane active show" id="product-1-item">
+                                        <img src="{{room.thumbnails.url}}" alt=""
+                                            class="img-fluid mx-auto d-block rounded">
+                                    </div>
+                                    {% for gl in gl %}
+                                    <div class="tab-pane" id="product-{{gl.id}}-item">
+                                        <img src="{{gl.image.url}}" alt="" class="img-fluid mx-auto d-block rounded">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                                <ul class="nav nav-pills nav-justified">
+                                    <li class="nav-item">
+                                        <a href="#product-1-item" data-toggle="tab" aria-expanded="false"
+                                            class="nav-link product-thumb active show">
+                                            <img src="{{room.thumbnails.url}}" alt=""
+                                                class="img-fluid mx-auto d-block rounded">
+                                        </a>
+                                    </li>
+                                    {% for gl in gl %}
+                                    <li class="nav-item">
+                                        <a href="#product-{{gl.id}}-item" data-toggle="tab" aria-expanded="true"
+                                            class="nav-link product-thumb">
+                                            <img src="{{gl.image.url}}" alt=""
+                                                class="img-fluid mx-auto d-block rounded">
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div> <!-- end col -->
+                            <div class="col-lg-7">
+                                <div class="pl-xl-3 mt-3 mt-xl-0">
+                                    <a href="#" class="text-primary"></a>
+                                    <h4 class="mb-3">{{room.name}}</h4>
+                                    <p class="text-muted float-left mr-3">
+                                        <span class="mdi mdi-star text-warning"></span>
+                                    </p>
+                                    <p class="mb-4"><a href="" class="text-muted">( {{room.rate}} Star )</a></p>
+                                    <h6 class="text-danger text-uppercase">20 % Off</h6>
+                                    <h4 class="mb-4">Price : <span class="text-muted mr-2"><del></del></span>
+                                        <b>${{room.price}} BDT</b>
+                                    </h4>
+                                    <p class="text-muted mb-4">{{room.details}}</p>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div>
+                                                {% for fec in fec %}
+                                                <p class="text-muted"><i
+                                                        class="mdi mdi-checkbox-marked-circle-outline h6 text-primary mr-2"></i>
+                                                    {{fec.feciliti}}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive mt-4">
+                                            <table class="table table-bordered table-centered mb-0">
+                                                <!-- <thead class="thead-light">
+                                                    <tr>
+                                                        <th>Outlets</th>
+                                                        <th>Price</th>
+                                                    </tr>
+                                                </thead> -->
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Mim Book</td>
+                                                        <td>{{room.min_booking_number}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Min Stay</td>
+                                                        <td>{{room.min_stay}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Contact Number</td>
+                                                        <td>{{room.mobile}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email</td>
+                                                        <td>{{room.mail}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Website</td>
+                                                        <td>{{room.website}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Owner Name</td>
+                                                        <td>{{room.owner}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Checkout</td>
+                                                        <td>{{room.checkout}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+                    </div> <!-- end card-->
+                </div> <!-- end col-->
+            </div>
+            <!-- end row-->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+    {% endblock %}

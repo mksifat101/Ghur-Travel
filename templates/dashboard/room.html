@@ -1,0 +1,171 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Rooms</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Rooms List</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <a href="{% url 'dashboard_room_add' %}" class="btn btn-danger mb-2"><i
+                                            class="mdi mdi-plus-circle mr-2"></i> Add
+                                        Room</a>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="text-sm-right">
+                                        <a href="{% url 'dashboard_room_fecilitis' %}"
+                                            class="btn btn-success mb-2 mr-1">Room Fecilitis</a>
+                                    </div>
+                                </div><!-- end col-->
+                            </div>
+                            <div class="table-responsive">
+                                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">ID</th>
+                                            <th class="border-top-0">Room Name</th>
+                                            <th class="border-top-0">Hotel</th>
+                                            <th class="border-top-0">Partner</th>
+                                            <th class="border-top-0">Price</th>
+                                            <th class="border-top-0">Cancel Fee</th>
+                                            <th class="border-top-0">Allow Cancel</th>
+                                            <th class="border-top-0">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for room in room %}
+                                        <tr>
+                                            <td>{{room.id}}</td>
+                                            <td>
+                                                <h5 class="font-15 my-1 font-weight-normal">{{room.name}}</h5>
+                                            </td>
+                                            <td>{{room.hotel}}</td>
+                                            <td>{{room.hotel.partner.user.email}}</td>
+                                            <td>{{room.price}}</td>
+                                            <td>{{room.cancel_fee}}</td>
+                                            <td>{% if room.allow_cancel == True %} Yes {% else %} No {% endif %}</td>
+                                            <td class="table-action">
+                                                <!-- <a href=""
+                                                    class="btn btn-primary btn-xs waves-effect waves-light">VIEW</a>
+                                                <a href="" data-toggle="modal"
+                                                    data-target="#package-edit-{{forloop.counter}}"
+                                                    class="btn btn-blue btn-xs waves-effect waves-light">EDIT</a>
+                                                <a href=""
+                                                    class="btn btn-danger btn-xs waves-effect waves-light">DEL</a> -->
+                                                <a href="{% url 'dashboard_room_single' room.slug %}"
+                                                    class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                                <a href="{% url 'dashboard_room_edit' room.id %}" class="action-icon">
+                                                    <i class="mdi mdi-square-edit-outline"></i></a>
+                                                <a data-toggle="modal" data-target="#room-delete{{forloop.counter}}"
+                                                    class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div> <!-- end table-responsive -->
+                            {% if room.has_other_pages %}
+                            <ul class="pagination pagination-rounded justify-content-end mb-0 mt-2">
+                                {% if room.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ room.previous_page_number }}"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a class="page-link disabled" aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% for num in room.paginator.page_range %}
+                                {% if room.number == num %}
+                                <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+                                {% elif num > room.number|add:'-3' and num < room.number|add:'3' %} <li
+                                    class="page-item">
+                                    </li>
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if room.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ room.next_page_number }}" aria-label="Next">
+                                            <span aria-hidden="true">»</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link disabled" aria-label="Next">
+                                            <span aria-hidden="true">»</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                            </ul>
+                            {% endif %}
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+    {% for i in room %}
+    <!-- Modal -->
+    <div class="modal fade" id="room-delete{{forloop.counter}}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h4 class="modal-title" id="myCenterModalLabel"> Are you sure Delete This Room!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="text-right">
+                            <a href="{% url 'dashboard_room_delete' i.id %}"
+                                class="btn btn-success waves-effect waves-light">Yes! Delete</a>
+                            <button type="button" class="btn btn-danger waves-effect waves-light m-l-10" class="close"
+                                data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    {% endfor %}
+
+    {% endblock %}

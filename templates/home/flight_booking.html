@@ -1,0 +1,379 @@
+{% extends 'base.html' %}
+{% block title %} Flight Booking {% endblock %}
+{% load static %}
+{% block content %}
+
+<!-- ================================
+    START BREADCRUMB AREA
+================================= -->
+<section class="breadcrumb-area bread-bg-6">
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="breadcrumb-content">
+                        <div class="section-heading">
+                            <h2 class="sec__title text-white">Flight Booking</h2>
+                        </div>
+                    </div><!-- end breadcrumb-content -->
+                </div><!-- end col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="breadcrumb-list text-right">
+                        <ul class="list-items">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li>Flight Booking</li>
+                        </ul>
+                    </div><!-- end breadcrumb-list -->
+                </div><!-- end col-lg-6 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end breadcrumb-wrap -->
+    <div class="bread-svg-box">
+        <svg class="bread-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><polygon points="100 0 50 10 0 0 0 10 100 10"></polygon></svg>
+    </div><!-- end bread-svg -->
+</section><!-- end breadcrumb-area -->
+<!-- ================================
+    END BREADCRUMB AREA
+================================= -->
+
+<!-- ================================
+    START BOOKING AREA
+================================= -->
+<section class="booking-area padding-top-100px padding-bottom-70px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-box">
+                    <div class="form-title-wrap">
+                        <h3 class="title">Your Card Information</h3>
+                    </div><!-- form-title-wrap -->
+                    <div class="form-content">
+                        <div class="section-tab check-mark-tab text-center pb-4">
+                            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="bkash-tab" data-toggle="tab" href="#bkash" role="tab" aria-controls="bkash" aria-selected="false">
+                                        <i class="la la-check icon-element"></i>
+                                        <img src="{% static 'assets/images/bkash.png' %}" alt="" style="height: 30px;">
+                                        <span class="d-block pt-2">bKash Payment</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="true">
+                                        <i class="la la-check icon-element"></i>
+                                        <img src="{% static 'assets/images/paypal.png' %}" alt="">
+                                        <span class="d-block pt-2">Payment with PayPal</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="payoneer-tab" data-toggle="tab" href="#payoneer" role="tab" aria-controls="payoneer" aria-selected="true">
+                                        <i class="la la-check icon-element"></i>
+                                        <img src="{% static 'assets/images/cod.jpg' %}" alt="">
+                                        <span class="d-block pt-2">Payment with COD</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- end section-tab -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade fade" id="credit-card" role="tabpanel" aria-labelledby="credit-card-tab">
+                                <div class="contact-form-action">
+                                    <form method="post">
+                                        <div class="row">
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Card Holder Name</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-credit-card form-icon"></span>
+                                                        <input class="form-control" type="text" name="text" placeholder="Card holder name">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Card Number</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-credit-card form-icon"></span>
+                                                        <input class="form-control" type="text" name="text" placeholder="Card number">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class="col-lg-6 responsive-column">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Expiry Month</label>
+                                                            <div class="form-group">
+                                                                <span class="la la-credit-card form-icon"></span>
+                                                                <input class="form-control" type="text" name="text" placeholder="MM">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 responsive-column">
+                                                        <div class="input-box">
+                                                            <label class="label-text">Expiry Year</label>
+                                                            <div class="form-group">
+                                                                <span class="la la-credit-card form-icon"></span>
+                                                                <input class="form-control" type="text" name="text" placeholder="YY">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="label-text">CVV</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-pencil form-icon"></span>
+                                                        <input class="form-control" type="text" name="text" placeholder="CVV">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-12">
+                                                <div class="input-box">
+                                                    <div class="form-group">
+                                                        <div class="custom-checkbox">
+                                                            <input type="checkbox" id="agreechb">
+                                                            <label for="agreechb">By continuing, you agree to the <a href="#">Terms and Conditions</a>.</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                            <div class="col-lg-12">
+                                                <div class="btn-box">
+                                                    <button class="theme-btn" type="submit">Confirm Booking</button>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                        </div>
+                                    </form>
+                                </div><!-- end contact-form-action -->
+                            </div><!-- end tab-pane-->
+                            <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                                <div class="contact-form-action">
+                                    <form method="post">
+                                        <div class="row">
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Email Address</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-envelope form-icon"></span>
+                                                        <input class="form-control" type="email" name="email" placeholder="Enter email address">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-6 responsive-column">
+                                                <div class="input-box">
+                                                    <label class="label-text">Password</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-lock form-icon"></span>
+                                                        <input class="form-control" type="text" name="text" placeholder="Enter password">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-6 -->
+                                            <div class="col-lg-12">
+                                                <div class="btn-box">
+                                                    <button class="theme-btn" type="submit">Login Account</button>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                        </div>
+                                    </form>
+                                </div><!-- end contact-form-action -->
+                            </div><!-- end tab-pane-->
+                            <div class="tab-pane show active" id="bkash" role="tabpanel" aria-labelledby="bkash-tab">
+                                <div class="contact-form-action">
+                                    <form method="post" action="{% url 'user_flight_booking_bkash' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <input type="text" name="dstlocation"bvalue="{{dstlocation}}" hidden>
+                                            <input type="text" name="dsttime" value="{{dsttime}}" hidden>
+                                            <input type="text" name="orglocation" value="{{orglocation}}" hidden>
+                                            <input type="text" name="orgtime" value="{{orgtime}}" hidden>
+                                            <input type="text" name="time" value="{{time}}" hidden>
+                                            <input type="text" name="duration" value="{{duration}}" hidden>
+                                            <input type="text" name="adult" value="{{adult}}" hidden>
+                                            <input type="text" name="child" value="{{child}}" hidden>
+                                            <input type="text" name="trclass" value="{{trclass}}" hidden>
+                                            <input type="text" name="pay" value="{{price}}" hidden>
+                                            <div class="col-lg-12">
+                                                <div class="btn-box">
+                                                    <button class="theme-btn" type="submit">Pay with bKash</button>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                        </div>
+                                    </form>
+                                </div><!-- end contact-form-action -->
+                            </div><!-- end tab-pane-->
+                            <div class="tab-pane fade" id="payoneer" role="tabpanel" aria-labelledby="payoneer-tab">
+                                <div class="contact-form-action">
+                                    <form method="post" action="{% url 'user_flight_booking_cod' %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <input type="text" name="dstlocation"bvalue="{{dstlocation}}" hidden>
+                                            <input type="text" name="dsttime" value="{{dsttime}}" hidden>
+                                            <input type="text" name="orglocation" value="{{orglocation}}" hidden>
+                                            <input type="text" name="orgtime" value="{{orgtime}}" hidden>
+                                            <input type="text" name="time" value="{{time}}" hidden>
+                                            <input type="text" name="duration" value="{{duration}}" hidden>
+                                            <input type="text" name="adult" value="{{adult}}" hidden>
+                                            <input type="text" name="child" value="{{child}}" hidden>
+                                            <input type="text" name="trclass" value="{{trclass}}" hidden>
+                                            <div class="col-lg-12">
+                                                <div class="btn-box">
+                                                    <button class="theme-btn" type="submit">Pay with COD</button>
+                                                </div>
+                                            </div><!-- end col-lg-12 -->
+                                        </div>
+                                    </form>
+                                </div><!-- end contact-form-action -->
+                            </div><!-- end tab-pane-->
+                        </div><!-- end tab-content -->
+                    </div><!-- end form-content -->
+                </div><!-- end form-box -->
+            </div><!-- end col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="form-box booking-detail-form">
+                    <div class="form-title-wrap">
+                        <h3 class="title">Booking Details</h3>
+                    </div><!-- end form-title-wrap -->
+                    <div class="form-content">
+                        <div class="card-item shadow-none radius-none mb-0">
+                            <div class="card-img pb-4">
+                                <!-- <a href="flight-single.html" class="d-block"> -->
+                                    <img src="{% static 'assets/images/img26.jpg' %}" alt="plane-img">
+                                </a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h3 class="card-title">Indianapolis to paris</h3>
+                                        <p class="card-meta">One way Flight</p>
+                                    </div>
+                                    <!-- <div>
+                                        <a href="flight-single.html" class="btn ml-1"><i class="la la-edit" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="card-rating">
+                                    <span class="badge text-white">4.4/5</span>
+                                    <span class="review__text">Average</span>
+                                    <span class="rating__text">(30 Reviews)</span>
+                                </div> -->
+                                <div class="section-block"></div>
+                                <ul class="list-items list-items-2 list-items-flush py-2">
+                                    <li class="font-size-15"><span class="w-auto d-block mb-n1"><i class="la la-plane mr-1 font-size-17"></i>Take off</span>12 May 2020 7:40am</li>
+                                    <li class="font-size-15"><i class="la la-clock-o mr-1 text-black font-size-17"></i>12hrs 40 min</li>
+                                    <li class="font-size-15"><span class="w-auto d-block mb-n1"><i class="la la-plane mr-1 font-size-17"></i>Landing</span>13 May 2020 8:40am</li>
+                                </ul>
+                                <h3 class="card-title pb-3">Order Details</h3>
+                                <div class="section-block"></div>
+                                <ul class="list-items list-items-2 py-3">
+                                    <li><span>Airline:</span>Delta</li>
+                                    <li><span>Flight Type:</span>Economy</li>
+                                    <li><span>Base Fare:</span>$240</li>
+                                    <li><span>Passengers:</span>2</li>
+                                </ul>
+                                <div class="section-block"></div>
+                                <ul class="list-items list-items-2 pt-3">
+                                    <li><span>Sub Total:</span>$240</li>
+                                    <li><span>Taxes And Fees:</span>$5</li>
+                                    <li><span>Total Price:</span>$245</li>
+                                </ul>
+                            </div>
+                        </div><!-- end card-item -->
+                    </div><!-- end form-content -->
+                </div><!-- end form-box -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end booking-area -->
+<!-- ================================
+    END BOOKING AREA
+================================= -->
+
+<div class="section-block"></div>
+
+<!-- ================================
+    START INFO AREA
+================================= -->
+<section class="info-area info-bg padding-top-90px padding-bottom-70px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 responsive-column">
+                <a href="#" class="icon-box icon-layout-2 d-flex">
+                    <div class="info-icon flex-shrink-0 bg-rgb text-color-2">
+                        <i class="la la-phone"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Need Help? Contact us</h4>
+                        <p class="info__desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                        </p>
+                    </div><!-- end info-content -->
+                </a><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column">
+                <a href="#" class="icon-box icon-layout-2 d-flex">
+                    <div class="info-icon flex-shrink-0 bg-rgb-2 text-color-3">
+                        <i class="la la-money"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Payments</h4>
+                        <p class="info__desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                        </p>
+                    </div><!-- end info-content -->
+                </a><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column">
+                <a href="#" class="icon-box icon-layout-2 d-flex">
+                    <div class="info-icon flex-shrink-0 bg-rgb-3 text-color-4">
+                        <i class="la la-times"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Cancel Policy</h4>
+                        <p class="info__desc">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                        </p>
+                    </div><!-- end info-content -->
+                </a><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end info-area -->
+<!-- ================================
+    END INFO AREA
+================================= -->
+
+<!-- ================================
+    START CTA AREA
+================================= -->
+<section class="cta-area subscriber-area section-bg-2 padding-top-60px padding-bottom-60px">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="section-heading">
+                    <h2 class="sec__title font-size-30 text-white">Subscribe to see Secret Deals</h2>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-7 -->
+            <div class="col-lg-5">
+                <div class="subscriber-box">
+                    <div class="contact-form-action">
+                        <form action="#">
+                            <div class="input-box">
+                                <label class="label-text text-white">Enter email address</label>
+                                <div class="form-group mb-0">
+                                    <span class="la la-envelope form-icon"></span>
+                                    <input class="form-control" type="email" name="email" placeholder="Email address">
+                                    <button class="theme-btn theme-btn-small submit-btn" type="submit">Subscribe</button>
+                                    <span class="font-size-14 pt-1 text-white-50"><i class="la la-lock mr-1"></i>Don't worry your information is safe with us.</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-5 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end cta-area -->
+<!-- ================================
+    END CTA AREA
+================================= -->
+
+{% endblock %}
