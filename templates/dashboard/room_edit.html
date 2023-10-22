@@ -46,13 +46,18 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Details About Room</label>
                                         <textarea class="form-control" name="details" id="example-textarea" rows="2"
-                                            placeholder="Room Details" value="{{room.details}}"></textarea>
+                                            placeholder="Room Details">{{room.details}}</textarea>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label">Thumbnails</label>
-                                        <input type="file" id="example-fileinput" name="thumbnails"
-                                            class="form-control-file">
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-lg-6">
+                                        <div class="mt-6">
+                                            <input type="file" data-plugins="dropify" name="thumbnails" data-default-file="{{room.thumbnails.url}}" />
+                                            <p class="text-muted text-center mt-2 mb-0">Thumbnails</p>
+                                        </div>
                                     </div>
+                                </div> <!-- end row -->
+                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Number of this Room</label>
                                         <input class="form-control" id="example-time" type="number"

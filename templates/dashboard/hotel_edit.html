@@ -48,19 +48,35 @@
                                         <label class="col-form-label">Hotel Rate <span
                                                 class="text-danger">*</span></label>
                                         <select name="rate" class="form-control">
-                                            <option value="1">1 Start</option>
-                                            <option value="2">2 Start</option>
-                                            <option value="3">3 Start</option>
-                                            <option value="4">4 Start</option>
-                                            <option value="5">5 Start</option>
+                                            <option value="1" {% if hotel.rate %} selected {% endif %}>1 Start</option>
+                                            <option value="2"  {% if hotel.rate %} selected {% endif %}>2 Start</option>
+                                            <option value="3"  {% if hotel.rate %} selected {% endif %}>3 Start</option>
+                                            <option value="4"  {% if hotel.rate %} selected {% endif %}>4 Start</option>
+                                            <option value="5"  {% if hotel.rate %} selected {% endif %}>5 Start</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Details About Hotel</label>
                                         <textarea class="form-control" name="details" id="example-textarea" rows="2"
-                                            placeholder="Hotel Details" value="{{hotel.details}}"></textarea>
+                                            placeholder="Hotel Details">{{hotel.details}}</textarea>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mt-6">
+                                            <input type="file" data-plugins="dropify" name="logo" data-default-file="{{hotel.logo.url}}" />
+                                            <p class="text-muted text-center mt-2 mb-0">Hotel Logo</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mt-6">
+                                            <input type="file" data-plugins="dropify" name="thumbnails" data-default-file="{{hotel.thumbnails.url}}" />
+                                            <p class="text-muted text-center mt-2 mb-0">Thumbnails</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row -->
+                                <div class="form-row">
+                                    <!-- <div class="form-group col-md-6">
                                         <label class="col-form-label">Hotel Logo</label>
                                         <input type="file" id="example-fileinput" name="logo" class="form-control-file">
                                     </div>
@@ -68,7 +84,7 @@
                                         <label class="col-form-label">Thumbnails</label>
                                         <input type="file" id="example-fileinput" name="thumbnails"
                                             class="form-control-file">
-                                    </div>
+                                    </div> -->
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Contact Number <span
                                                 class="text-danger">*</span></label>
