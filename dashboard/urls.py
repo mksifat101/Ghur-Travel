@@ -36,6 +36,7 @@ urlpatterns = [
     path('hotel/<slug>', views.dashboard_hotel_single, name='dashboard_hotel_single'),
     path('hotel/edit/<id>', views.dashboard_hotel_edit, name='dashboard_hotel_edit'),
     path('hotel/delete/<id>', views.dashboard_hotel_delete, name='dashboard_hotel_delete'),
+    path('hotel/duplicate/<id>', views.dashboard_hotel_copy, name='dashboard_hotel_copy'),
     path('hotel/feciliti/', views.dashboard_hotel_fecilitis, name='dashboard_hotel_fecilitis'),
     path('hotel/fecilitis/add', views.dashboard_hotel_fecilitis_add, name='dashboard_hotel_fecilitis_add'),
     path('hotel/fecilitis/update/<id>', views.dashboard_hotel_fecilitis_update, name='dashboard_hotel_fecilitis_update'),
@@ -45,6 +46,7 @@ urlpatterns = [
     path('room/fecilitis/<id>', views.dashboard_room_fecilitis_update, name='dashboard_room_fecilitis_update'),
     path('room/add', views.dashboard_room_add, name='dashboard_room_add'),
     path('room/<slug>', views.dashboard_room_single, name='dashboard_room_single'),
+    path('room/duplicate/<id>', views.dashboard_room_copy, name='dashboard_room_copy'),
      #     
     path('hotels/add', views.dashboard_hotel_add, name='dashboard_hotel_add'),
 #     

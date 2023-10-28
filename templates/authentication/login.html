@@ -48,6 +48,14 @@
                         <p class="font-size-15 pt-2">Dont have an account?
                             <a href="{% url 'register' %}" class="text-color">Register now</a>
                         </p>
+                        {% for msg in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{msg}}.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        {% endfor %}
                     </div><!-- form-title-wrap -->
                     <div class="form-content ">
                         <div class="contact-form-action">

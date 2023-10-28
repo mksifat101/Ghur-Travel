@@ -268,7 +268,7 @@ def room_booking(request, id):
         to_date = request.GET.get('to_date')
         adult = request.GET.get('adult')
         rooms = request.GET.get('room')
-        price = room.price
+        price = request.GET.get('total') 
         adult = request.GET.get('adult')
         child = request.GET.get('child')
     data = {
@@ -286,9 +286,7 @@ def room_booking(request, id):
     return render(request, 'home/room_booking.html', data)
 
 
-@customer_required
-def booking_success(request):
-    return render(request, 'home/payment-success.html')
+
 
 @customer_required
 def flight_booking(request):
@@ -642,6 +640,9 @@ def user_room_booking_cod(request):
         recpipient_list = [user.user.email]
         send_mail(subject=subject, message=message,
                     from_email=email_from, recipient_list=recpipient_list)
+        request.session['room_id'] = room_id
+        request.session['from_date'] = from_date
+        request.session['to_date'] = to_date
         return redirect('booking_success')
 
 def payment_success(request):
@@ -701,3 +702,18 @@ def payment_success(request):
                 #             from_email=email_from, recipient_list=recpipient_list)
                 return redirect('user_dashboard')
     return render(request, 'home/payment-success.html')
+
+
+
+@customer_required
+def booking_success(request):
+    room_id = request.session.get('room_id')
+    from_date = request.session.get('from_date')
+    to_date = request.session.get('to_date')
+    room = Rooms.objects.get(id=room_id)
+    data = {
+        'from_date': from_date,
+        'to_date': to_date,
+        'room': room
+    }
+    return render(request, 'home/payment-success.html', data)

@@ -185,6 +185,33 @@ def partner_hotel_single(request, slug):
     return render(request, 'partner/partnet_hotel_single.html', data)
 
 
+
+@partnar_required
+def pertner_hotel_copy(request, id):
+    ht = Hotel.objects.get(id=id)
+    hotel = Hotel()
+    hotel.name = ht.name
+    hotel.partner = ht.partner
+    hotel.rate = ht.rate
+    hotel.details = ht.details
+    hotel.logo = ht.logo
+    hotel.thumbnails = ht.thumbnails
+    hotel.mobile = ht.mobile
+    hotel.address = ht.address
+    hotel.mail = ht.mail
+    hotel.destination_id = ht.destination.pk
+    hotel.owner = ht.owner
+    hotel.website = ht.website
+    hotel.promo_video = ht.promo_video
+    hotel.checkout = ht.checkout
+    hotel.min_stay = ht.min_stay
+    hotel.min_booking_number = ht.min_booking_number
+    hotel.save()
+    messages.success(request, "Hotel Duplicated Successfully")
+    return redirect('partner_hotel')
+
+
+
 @partnar_required
 def pertner_room_fecilitis(request):
     fecilitis = Facilities_For_Room.objects.all()

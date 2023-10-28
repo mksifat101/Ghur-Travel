@@ -421,6 +421,32 @@ def dashboard_hotel_single(request, slug):
     return render(request, 'dashboard/hotel_single.html', data)
 
 
+
+@admin_required
+def dashboard_hotel_copy(request, id):
+    ht = Hotel.objects.get(id=id)
+    hotel = Hotel()
+    hotel.name = ht.name
+    hotel.rate = ht.rate
+    hotel.details = ht.details
+    hotel.logo = ht.logo
+    hotel.thumbnails = ht.thumbnails
+    hotel.mobile = ht.mobile
+    hotel.address = ht.address
+    hotel.mail = ht.mail
+    hotel.owner = ht.owner
+    hotel.website = ht.website
+    hotel.promo_video = ht.promo_video
+    hotel.checkout = ht.checkout
+    hotel.min_stay = ht.min_stay
+    hotel.min_booking_number = ht.min_booking_number
+    hotel.save()
+    messages.success(request, "Hotel Duplicated Successfully")
+    return redirect('dashboard_hotel_list')
+
+
+
+
 @admin_required
 def dashboard_room_fecilitis(request):
     fecilitis = Facilities_For_Room.objects.all()
@@ -428,6 +454,7 @@ def dashboard_room_fecilitis(request):
         'fec': fecilitis
     }
     return render(request, 'dashboard/room_fecilitis.html', data)
+
 
 
 @admin_required
@@ -574,6 +601,31 @@ def dashboard_room_delete(request, id):
     room = Rooms.objects.get(id=id)
     room.delete()
     messages.success(request, "Room Deleted Successfully")
+    return redirect('dashboard_room')
+
+
+
+@admin_required
+def dashboard_room_copy(request, id):
+    rm = Rooms.objects.get(id=id)
+    room = Rooms()
+    room.name = rm.name
+    room.hotel_id = rm.hotel
+    room.thumbnails = rm.thumbnails
+    room.details = rm.details
+    room.number_of_room = rm.number_of_room
+    room.number_of_bed = rm.number_of_bed
+    room.number_of_adult = rm.number_of_adult
+    room.number_of_children = rm.number_of_children
+    room.room_footage = rm.room_footage
+    room.allow_cancel = True
+    room.arrive = rm.arrive
+    room.cancel_fee = rm.cancel_fee
+    room.price = rm.price
+    room.before_booking = rm.before_booking
+    room.min_stay = rm.min_stay
+    room.save()
+    messages.success(request, "Room Duplicated Successfully")
     return redirect('dashboard_room')
 
 
