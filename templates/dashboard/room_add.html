@@ -32,43 +32,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Search Partner</h4>
-                            <form>
-                                {% csrf_token %}
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label">Filter</label>
-                                        <select name="filter" id="ordfilter" class="form-control">
-                                            <option value="id">ID</option>
-                                            <option value="phone">Mobile Number</option>
-                                            <option value="email">Email</option>
-                                            <option value="username">Username</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label"> Partner <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="get_partner_by_hotel"
-                                            name="partner">
-                                    </div>
-                                </div>
-                                <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button> -->
-                            </form>
-                        </div> <!-- end card-body -->
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            </div>
-            <!-- end row -->
-
-            <!-- Form row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
                             <h4 class="header-title">Input Room Information</h4>
                             <form method="post" action="{% url 'dashboard_room_add' %}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-form-label">Partner <span class="text-danger">*</span></label>
+                                        <select name="partnr" id="partnerfilter" class="form-control" data-toggle="select2">
+                                            <option selected>Select</option>
+                                            {% for pt in partnet %}
+                                            <option value="{{pt.id}}">{{pt.id}} {{pt.company}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Hotel <span class="text-danger">*</span></label>
                                         <select name="hotel" id="get_partner_hotel_result" class="form-control">

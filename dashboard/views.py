@@ -491,6 +491,7 @@ def dashboard_room(request):
 
 @admin_required
 def dashboard_room_add(request):
+    partnet = Partnar.objects.all()
     hotels = Hotel.objects.all()
     fecilitis = Facilities_For_Room.objects.all()
     if request.method == 'POST':
@@ -545,7 +546,8 @@ def dashboard_room_add(request):
         return redirect('dashboard_room')
     data = {
         'hotel': hotels,
-        'fec': fecilitis
+        'fec': fecilitis,
+        'partnet': partnet
     }
     return render(request, 'dashboard/room_add.html', data)
 

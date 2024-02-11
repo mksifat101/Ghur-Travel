@@ -27,37 +27,6 @@
             </div>
             <!-- end page title -->
 
-            <!-- Form row -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title">Search Parnet</h4>
-                            <form method="post" action="#">
-                                {% csrf_token %}
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label">Filter</label>
-                                        <select name="filter" id="ordfilter" class="form-control">
-                                            <option value="id">ID</option>
-                                            <option value="phone">Mobile Number</option>
-                                            <option value="email">Email</option>
-                                            <option value="username">Username</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label"> Partner <span
-                                                class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="partnerfilter" name="partner">
-                                    </div>
-                                </div>
-                                <!-- <button type="submit" class="btn btn-primary waves-effect waves-light">Search</button> -->
-                            </form>
-                        </div> <!-- end card-body -->
-                    </div> <!-- end card-->
-                </div> <!-- end col -->
-            </div>
-            <!-- end row -->
 
             <!-- Form row -->
             <div class="row">
@@ -70,7 +39,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Partner <span class="text-danger">*</span></label>
-                                        <div id="get_hotel_prt"></div>
+                                        <select name="partnr" id="partner" class="form-control" data-toggle="select2">
+                                            {% for pt in partnet %}
+                                            <option value="{{pt.id}}">{{pt.id}} {{pt.company}}</option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Hotel Name <span

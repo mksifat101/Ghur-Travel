@@ -21,6 +21,7 @@
         type="text/css" />
     <link href="{% static 'admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}"
         rel="stylesheet" type="text/css" />
+        <link href="{% static 'admin/assets/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap Tables css -->
     <link href="{% static 'admin/assets/libs/bootstrap-table/bootstrap-table.min.css' %}" rel="stylesheet"
@@ -356,6 +357,7 @@
     <script src="{% static 'admin/assets/libs/dropify/js/dropify.min.js' %}"></script>
      <!-- Init js-->
      <script src="{% static 'admin/assets/js/pages/form-fileuploads.init.js' %}"></script>
+     <script src="{% static 'admin/assets/libs/select2/js/select2.min.js' %}"></script>
 
     <!-- Bootstrap Tables js -->
     <script src="{% static 'admin/assets/libs/bootstrap-table/bootstrap-table.min.js' %}"></script>
@@ -395,15 +397,13 @@
             $(document).ready(function () {
                 $('#partnerfilter').change(function () {
                     var partner = $(this).val();
-                    var filter = $('#ordfilter').val();
                     $.ajax({
                         url: "{% url 'get_hotel_partner' %}",
                         data: {
                             'partner': partner,
-                            'filter': filter
                         },
                         success: function (data) {
-                            $('#get_hotel_prt').html(data)
+                            $('#get_partner_hotel_result').html(data)
                         }
                     })
                 })
@@ -438,6 +438,15 @@
                     })
                 })
             })
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Initialize select2 for the select element with data-toggle="select2"
+            $('[data-toggle="select2"]').select2();
+            $('#sheet_sale_lot').select2();
+            $('#box_sale_lot').select2();
+            $('#box_sale_ledger').select2();
+        });
     </script>
 
     {% for msg in messages %}

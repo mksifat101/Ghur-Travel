@@ -222,13 +222,9 @@
                                       </div>
                                     </div>
                                     <div class="dropdown-item">
-                                      <div
-                                        class="qty-box d-flex align-items-center justify-content-between"
-                                      >
+                                      <div class="qty-box d-flex align-items-center justify-content-between">
                                         <label>Children</label>
-                                        <div
-                                          class="qtyBtn d-flex align-items-center"
-                                        >
+                                        <div class="qtyBtn d-flex align-items-center">
                                           <div class="qtyDec">
                                             <i class="la la-minus"></i>
                                           </div>
@@ -462,32 +458,20 @@
                           </div>
                           <!-- end col-lg-3 -->
                           <div class="col-lg-3">
-                            <a
-                              href="#"
-                              class="theme-btn w-100 text-center margin-top-20px"
-                              >Search Now</a
-                            >
+                            <a href="#" class="theme-btn w-100 text-center margin-top-20px">Search Now</a>
                           </div>
                         </form>
                       </div>
                       <div class="advanced-wrap">
-                        <a
-                          class="btn collapse-btn theme-btn-hover-gray font-size-15"
-                          data-toggle="collapse"
-                          href="#collapseThree"
-                          role="button"
-                          aria-expanded="false"
-                          aria-controls="collapseThree"
-                        >
+                        <a class="btn collapse-btn theme-btn-hover-gray font-size-15" data-toggle="collapse" href="#collapseThree" role="button"
+                          aria-expanded="false" aria-controls="collapseThree">
                           Advanced options <i class="la la-angle-down ml-1"></i>
                         </a>
                         <div class="collapse pt-3" id="collapseThree">
                           <div class="row">
                             <div class="col-lg-4">
                               <div class="input-box">
-                                <label class="label-text"
-                                  >Preferred airline</label
-                                >
+                                <label class="label-text">Preferred airline</label>
                                 <div class="form-group">
                                   <div class="select-contain w-100">
                                     <select class="select-contain-select">
@@ -937,13 +921,8 @@
                       role="tabpanel"
                       aria-labelledby="multi-city-tab"
                     >
-                      <div
-                        class="contact-form-action multi-flight-field d-flex align-items-center"
-                      >
-                        <form
-                          action="#"
-                          class="row flex-grow-1 align-items-center"
-                        >
+                      <div class="contact-form-action multi-flight-field d-flex align-items-center">
+                        <form action="#" class="row flex-grow-1 align-items-center">
                           <div class="col-lg-4 pr-0">
                             <div class="input-box">
                               <label class="label-text">Flying from</label>
@@ -1029,9 +1008,7 @@
                                   <span
                                     class="children"
                                     data-text="Child"
-                                    data-text-multi="Children"
-                                    >0 Child</span
-                                  >
+                                    data-text-multi="Children">0 Child</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-wrap">
                                   <div class="dropdown-item">
@@ -1146,17 +1123,16 @@
                       {% csrf_token %}
                       <div class="col-lg-3 pr-0">
                         <div class="input-box">
-                          <label class="label-text"
-                            >Destination</label
-                          >
+                          <label class="label-text">Destination</label>
                           <div class="form-group">
                             <span class="la la-map-marker form-icon"></span>
-                            <input
-                              class="form-control"
-                              type="text" required
-                              name="destination"
-                              placeholder="Enter city or property"
-                            />
+                            <!-- <input class="form-control" type="text" required name="destination" placeholder="Enter city or property"/> -->
+                            <select name="destination" class="form-control" data-toggle="select2" required>
+                              <option selected value="">Select</option>
+                              {% for grp in grp %}
+                              <option value="{{grp.id}}">{{grp.name}}</option>
+                              {% endfor %}
+                          </select>
                           </div>
                         </div>
                       </div>
@@ -1537,7 +1513,7 @@
                       </div>
                       <!-- end checkmark-wrap -->
                       <div class="btn-box pt-3">
-                        <a href="activity-search-result.html" class="theme-btn"
+                        <a href="#" class="theme-btn"
                           >Search Now</a
                         >
                       </div>
@@ -1716,7 +1692,7 @@
                       </div>
                       <!-- end checkmark-wrap -->
                       <div class="btn-box pt-3">
-                        <a href="activity-search-result.html" class="theme-btn"
+                        <a href="#" class="theme-btn"
                           >Search Now</a
                         >
                       </div>
@@ -2780,7 +2756,7 @@
             </div>
             <!-- end section-heading -->
             <div class="btn-box padding-top-35px">
-              <a href="become-local-expert.html" class="theme-btn border-0"
+              <a href="#" class="theme-btn border-0"
                 >Join with us</a
               >
             </div>

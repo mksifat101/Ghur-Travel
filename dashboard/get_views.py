@@ -39,20 +39,11 @@ def get_top_dst(request):
 
 def get_hotel_partner(request):
     partner = request.GET.get('partner')
-    filter = request.GET.get('filter')
-    if filter == "id":
-        clint = Partnar.objects.get(id=partner)
-    elif filter == "phone":
-        user = User.objects.get(phone=partner)
-        clint = Partnar.objects.get(user=user)
-    elif filter == "email":
-        user = User.objects.get(email=partner)
-        clint = Partnar.objects.get(user=user)
-    elif filter == "username":
-        user = User.objects.get(username=partner)
-        clint = Partnar.objects.get(user=user)
+    clint = Partnar.objects.get(id=partner)
+    hotel = Hotel.objects.filter(partner=clint)
     data = {
-        'customer': clint
+        'customer': clint,
+        'hotel': hotel
     }
     return render(request, 'get/get_hotel_partner.html', data)
 
